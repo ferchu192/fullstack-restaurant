@@ -9,6 +9,12 @@ const {
 } = DB_CONFIG;
 
 (async () => {
-  await mongoose.connect(`mongodb://${MONGO_HOST}/${MONGO_DATABASE}`);
-  console.log('Database is connected');
+  try {
+    const nameDB = `mongodb://${MONGO_HOST}/${MONGO_DATABASE}`;
+    const db = await mongoose.connect(nameDB);
+    console.log('db: ', db.connection.name);
+    console.log('Database is connected');
+  } catch(e) {
+    console.error(e)
+  }
 })()
