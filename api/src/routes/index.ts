@@ -1,5 +1,9 @@
-import menuRouter from './menu.routes';
+import restaurantRouter from './restaurant.routes';
+import productRouter from './product.routes';
+import orderRouter from './order.routes';
 
 export default {
-  menuRouter,
+  restaurantRouter,
+  productRouter,
+  orderRouter,
 }

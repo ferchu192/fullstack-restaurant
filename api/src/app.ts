@@ -24,10 +24,14 @@ app.use(express.urlencoded({ extended: false }));
  ---------------------------------- ROUTERS ----------------------------------
 */
 const {
-  menuRouter
+  restaurantRouter,
+  productRouter,
+  orderRouter,
 } = routers;
 
-app.use(menuRouter);
+app.use(restaurantRouter);
+app.use(productRouter);
+app.use(orderRouter);
 
 
 export default app;

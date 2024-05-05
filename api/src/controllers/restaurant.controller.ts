@@ -66,8 +66,6 @@ export const paginateRestaurant: RequestHandler = async (req, res) => {
       cursor, // Cursor to the last product
     } = body;
 
-    console.log('body: ', body);
-
     const idRestaurant = new ObjectId(id);
     const restaurant = await Restaurant.aggregate([
       { $match: { _id: idRestaurant } },
@@ -80,3 +78,14 @@ export const paginateRestaurant: RequestHandler = async (req, res) => {
     res.status(500).json({ message: e })
   }
 }
+
+export const deleteRestaurant: RequestHandler = async (req, res) => {
+  try{
+    const restaurant = await Restaurant.findByIdAndDelete(req.params.id);
+    if (!restaurant) return res.status(204).json();
+    return res.json(restaurant)
+  } catch(e) {
+    console.error(`[ERROR] - deleteRestaurant - error: ${e}`)
+    res.status(500).json({ message: e })
+  }
+};

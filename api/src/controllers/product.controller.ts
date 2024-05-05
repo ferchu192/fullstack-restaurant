@@ -97,3 +97,14 @@ export const editProduct: RequestHandler = async (req, res) => {
     res.status(500).json({ message: e })
   }
 }
+
+export const deleteProduct: RequestHandler = async (req, res) => {
+  try{
+    const product = await Product.findByIdAndDelete(req.params.id);
+    if (!product) return res.status(204).json();
+    return res.json(product)
+  } catch(e) {
+    console.error(`[ERROR] - deleteProduct - error: ${e}`)
+    res.status(500).json({ message: e })
+  }
+};
