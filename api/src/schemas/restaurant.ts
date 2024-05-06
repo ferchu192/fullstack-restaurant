@@ -14,6 +14,9 @@ const restaurantSchema = new Schema({
     type: Types.ObjectId,
     ref: 'product'
   }],
+  image: {
+    type: String,
+  },
   isNew: {
     type: Boolean,
     default: true

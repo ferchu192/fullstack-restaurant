@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import {
-  paginateRestaurant,
+  getRestaurantMenu,
   createRestaurant,
   editRestaurant,
   deleteRestaurant,
@@ -10,8 +10,8 @@ import {
 const router = Router();
 
 router.post('/create-restaurant', createRestaurant);
-router.get('/restaurants', getRestaurants);
-router.post('/restaurant', paginateRestaurant);
+router.post('/restaurants', getRestaurants); // Paginate only Restaurants
+router.post('/restaurant', getRestaurantMenu); // Paginate the menus of a Restaurant
 router.put('/restaurant', editRestaurant);
 router.delete('/restaurant/:id', deleteRestaurant);
 

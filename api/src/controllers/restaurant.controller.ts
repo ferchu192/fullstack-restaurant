@@ -12,6 +12,7 @@ export const createRestaurant: RequestHandler = async (req, res) => {
     const {
       name,
       description,
+      image,
     } = body;
 
     const existRestaurant = await Restaurant.findOne({ name: name })
@@ -21,6 +22,7 @@ export const createRestaurant: RequestHandler = async (req, res) => {
     const newRestaurant = new Restaurant({
       name,
       description,
+      image,
     })
 
     const saved = await newRestaurant.save();
@@ -58,7 +60,7 @@ export const editRestaurant: RequestHandler = async (req, res) => {
   }
 }
 
-export const paginateRestaurant: RequestHandler = async (req, res) => {
+export const getRestaurantMenu: RequestHandler = async (req, res) => {
   try {
     const { body } = req;
     const {
@@ -72,9 +74,9 @@ export const paginateRestaurant: RequestHandler = async (req, res) => {
       { $project: { result: { $slice: ["$menu", cursor, 10] } } }
     ]);
 
-    res.json(restaurant)
+    res.json(restaurant);
   } catch (e) {
-    console.error(`[ERROR] - paginateRestaurant - error: ${e}`)
+    console.error(`[ERROR] - getRestaurantMenu - error: ${e}`)
     res.status(500).json({ message: e })
   }
 }
@@ -90,10 +92,31 @@ export const deleteRestaurant: RequestHandler = async (req, res) => {
   }
 };
 
+// export const getRestaurants: RequestHandler = async(req, res) => {
+//   try{
+//     const restaurants = await Restaurant.find({}, {name: 1, description: 1, isNew: 1});
+//     return res.json(restaurants)
+//   } catch(e) {
+//     console.error(`[ERROR] - getRestaurants - error: ${e}`)
+//     res.status(500).json({ message: e })
+//   }
+// };
+
 export const getRestaurants: RequestHandler = async(req, res) => {
   try{
-    const restaurants = await Restaurant.find({}, {name: 1, description: 1, isNew: 1});
-    return res.json(restaurants)
+    const { body } = req;
+    const {
+      limit,
+      cursor, // Cursor to the last product
+    } = body;
+
+    const restaurants = await Restaurant.find().skip(cursor).limit(limit);
+    const totalCount = await Restaurant.countDocuments();
+
+    res.json({
+      restaurants,
+      totalCount,
+    })
   } catch(e) {
     console.error(`[ERROR] - getRestaurants - error: ${e}`)
     res.status(500).json({ message: e })

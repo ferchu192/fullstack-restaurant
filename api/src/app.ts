@@ -1,6 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
+const path = require('path');
 
 import { API_CONFIG } from './config'
 import routers from './routes';
@@ -29,9 +30,11 @@ const {
   orderRouter,
 } = routers;
 
+const pathPublic = path.join(__dirname, '../public');
+
 app.use(restaurantRouter);
 app.use(productRouter);
 app.use(orderRouter);
-
+app.use('/public', express.static(pathPublic));
 
 export default app;
