@@ -18,6 +18,9 @@ const Chip = styled.span<ChipProps>`
   border-radius: 2rem;
   color: ${(props) => props.color || 'white'};
   background-color: ${(props) => props.backgroundColor || 'gray'};
+  padding: 0.2rem;
+  padding-inline: 0.5rem;
+  font-weight: bold;
 `;
 
 const Tag = (props: Props) => {
@@ -25,13 +28,13 @@ const Tag = (props: Props) => {
 
   switch (type) {
     case 'new':
-      return <Chip key={`${key}-${type}`} color="white" backgroundColor="#00d014" ></Chip>
+      return <Chip key={`${key}-${type}`} color="white" backgroundColor="#3ff436" >New</Chip>
 
     case 'celiac':
-      return <Chip key={`${key}-${type}`} color="white" backgroundColor="#ffc107" ></Chip>
+      return <Chip key={`${key}-${type}`} color="white" backgroundColor="#ffc107" >Celiac</Chip>
 
     case 'vegan':
-      return <Chip key={`${key}-${type}`} color="white" backgroundColor="#009345" ></Chip>
+      return <Chip key={`${key}-${type}`} color="white" backgroundColor="#009345" >Vegan</Chip>
 
     default:
       return <></>

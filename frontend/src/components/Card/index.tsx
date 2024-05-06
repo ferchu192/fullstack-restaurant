@@ -12,6 +12,13 @@ const Container = styled.div`
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 8px 24px;
   border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  position: relative;
+
 `;
 
 const Picture = styled.img`
@@ -19,9 +26,24 @@ const Picture = styled.img`
   width: 5rem;
 `;
 
-// const Title = styled.h2`
-// `;
+const Title = styled.h2`
+  text-align: center;
+`;
 
+const Description = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+`;
+
+const TagContainer = styled.div`
+  position: absolute;
+  right: 1rem;
+  gap: 0.3rem;
+  display: flex;
+`;
 interface Props {
   title: string;
   description: string;
@@ -41,16 +63,18 @@ const Card = (props: Props) => {
 
   return (
     <Container id="card-container" key={`${key}-${title}`}>
-      <h2 id="div-container">
+      <Title id="div-container">
         {title}
-      </h2>
-      <Picture src={imagePath} />
-      {
-        headers.map((header, index) => <Tag type={header} key={`${index}`} />)
-      }
-      <div>
+      </Title>
+      <Picture id="picture" src={imagePath} />
+        <TagContainer id="tag-container">
+          {
+            headers.map((header, index) => <Tag type={header} key={`${index}`} />)
+          }
+        </TagContainer>
+      <Description id="description">
         {description}
-      </div>
+      </Description>
     </Container>
   )
 };

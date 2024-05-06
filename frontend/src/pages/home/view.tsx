@@ -26,6 +26,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 5rem;
+  justify-items: center;
 `;
 
 const ID_BASE = 'home-view';
