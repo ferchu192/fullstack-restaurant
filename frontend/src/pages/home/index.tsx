@@ -11,10 +11,12 @@ import View from './view'
 
 const Home = () => {
   const [restaurants, setRestaurants] = useState([]);
+  const [totalCount, setTotalCount] = useState(0);
 
   const loadRestaurants = async () => {
-    const result = await getRestaurants()
-    setRestaurants(result?.data);
+    const result = await getRestaurants(0, 5)
+    setRestaurants(result.restaurants);
+    setTotalCount(result.totalCount);
   };
 
   useEffect(() => {
@@ -22,7 +24,7 @@ const Home = () => {
     return () => { }
   }, []);
 
-  return <View restaurants={restaurants} />
+  return <View restaurants={restaurants} totalCount={totalCount} />
 };
 
 export default Home;

@@ -7,8 +7,8 @@ import styled from 'styled-components';
 import Tag, { TypeHeader } from '../Tag';
 
 const Container = styled.div`
-  height: 15rem;
-  width: 15rem;
+  height: 25rem;
+  width: 25rem;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 8px 24px;
   border-radius: 24px;
@@ -18,14 +18,17 @@ const Container = styled.div`
   gap: 0.5rem;
   padding: 1rem;
   position: relative;
-
+  background-color: #fffffff2;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.015);
+  }
 `;
 
 const Picture = styled.img`
-  height: 5rem;
-  width: 5rem;
+  height: 14rem;
+  width: 20rem;
 `;
-
 const Title = styled.h2`
   text-align: center;
 `;
@@ -35,7 +38,8 @@ const Description = styled.div`
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
+  padding-inline: 1rem;
 `;
 
 const TagContainer = styled.div`
@@ -44,34 +48,36 @@ const TagContainer = styled.div`
   gap: 0.3rem;
   display: flex;
 `;
-interface Props {
+export interface CardInterface {
   title: string;
   description: string;
   headers: TypeHeader[];
-  imagePath: string;
+  image: string;
   key: string;
 }
 
-const Card = (props: Props) => {
+const Card = (props: CardInterface) => {
   const {
     key,
     title,
     description,
-    imagePath,
+    image,
     headers,
   } = props;
-
+  
   return (
     <Container id="card-container" key={`${key}-${title}`}>
       <Title id="div-container">
         {title}
       </Title>
-      <Picture id="picture" src={imagePath} />
-        <TagContainer id="tag-container">
-          {
-            headers.map((header, index) => <Tag type={header} key={`${index}`} />)
-          }
-        </TagContainer>
+      <Picture id="picture" src={`${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/public/${image}`} />
+      {/* <div style={{ height: '15rem', width: '15rem', backgroundColor: '#bab3b373' }} /> */}
+      {/* Photo by <a href="https://www.shopify.com/stock-photos/@thenomadbrodie?utm_campaign=photo_credit&amp;utm_content=Browse+Free+HD+Images+of+Restaurant+Entrance+Lights+Vibrant+Alleyway&amp;utm_medium=referral&amp;utm_source=credit">Brodie</a> from <a href="https://www.shopify.com/stock-photos/restaurant?utm_campaign=photo_credit&amp;utm_content=Browse+Free+HD+Images+of+Restaurant+Entrance+Lights+Vibrant+Alleyway&amp;utm_medium=referral&amp;utm_source=credit">Burst</a> */}
+      <TagContainer id="tag-container">
+        {
+          headers.map((header, index) => <Tag type={header} key={`${index}`} />)
+        }
+      </TagContainer>
       <Description id="description">
         {description}
       </Description>

@@ -4,17 +4,23 @@ import React from 'react';
 import styled from 'styled-components';
 
 // Components
-import Card from '../../components/Card'
+import Card, { CardInterface } from '../../components/Card'
+import PaginateScroll from '../../components/PaginateScroll';
 
 // Interfaces
 import { Restaurant } from './Restaurant'
 import { TypeHeader } from '../../components/Tag'
 
+// Endpoints
+import { getRestaurants } from '../../services/endpoints'
+
+// Helpers
+import { parseRestaurants } from './helpers';
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 5rem;
-  gap: 5rem;
+  gap: 3rem;
 `;
 
 const Header = styled.div`
@@ -22,41 +28,37 @@ const Header = styled.div`
   justify-content: center;
 `;
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 5rem;
-  justify-items: center;
+const H1 = styled.h1`
+  color: white;
+  font-family: Arial sans-serif;
 `;
 
 const ID_BASE = 'home-view';
-
 interface Props {
-  restaurants: Restaurant[]
+  restaurants: Restaurant[],
+  totalCount: number,
 }
 
 const View = (props: Props) => {
-  const { restaurants } = props;
+  const { restaurants, totalCount } = props;
+
+  const fetchMore: (cursor: number) => Promise<CardInterface[]> = async (cursor: number) => {
+    const result = await getRestaurants(cursor, 5);
+    return parseRestaurants(result.restaurants);
+  }
+
   return (
     <Container id={`${ID_BASE}-container`}>
       <Header id={`${ID_BASE}-header`}>
-        <h1>
-          Choice a restaurant
-        </h1>
+        <H1>
+          CHOICE A RESTAURANT
+        </H1>
       </Header>
-      <Grid id={`${ID_BASE}-grid`}>
-        {
-          restaurants.map((restaurant, index) => (
-            <Card
-              key={`restaurant-card-${index}`}
-              title={restaurant.name}
-              description={restaurant.description}
-              headers={[TypeHeader.new]}
-              imagePath={"hola"}
-            />
-          ))
-        }
-      </Grid>
+      <PaginateScroll
+        elements={parseRestaurants(restaurants)}
+        fetchMore={fetchMore}
+        totalCount={totalCount}
+      />
     </Container>
   )
 };

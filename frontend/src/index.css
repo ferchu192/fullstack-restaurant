@@ -1,0 +1,22 @@
+body::-webkit-scrollbar-thumb:hover {
+  background: #e0a0e0;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+  /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: white;
+  /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #e0e0e0;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+  border: 1px solid #f0e0e0;
+  /* creates padding around scroll thumb */
+}
