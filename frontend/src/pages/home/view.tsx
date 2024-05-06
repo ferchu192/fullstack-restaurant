@@ -20,7 +20,7 @@ import { parseRestaurants } from './helpers';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1rem;
 `;
 
 const Header = styled.div`
@@ -30,7 +30,8 @@ const Header = styled.div`
 
 const H1 = styled.h1`
   color: white;
-  font-family: Arial sans-serif;
+  font-family: Roboto Slab, serif;
+  font-size: 3rem;
 `;
 
 const ID_BASE = 'home-view';

@@ -8,10 +8,8 @@ import Card, { CardInterface } from '../Card';
 
 const Container = styled.div`
   padding: 2rem;
-  /* background-color: #d1d1d15e; */
-  /* background-color: #ffffff5e; */
-  background-color: #ffffffa1;
-  height: 35rem;
+  background-color: #e4e3de;
+  height: 40rem;
   overflow-y: auto;
   border-radius: 2rem;
 `;
