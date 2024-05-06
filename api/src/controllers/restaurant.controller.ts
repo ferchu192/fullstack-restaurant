@@ -89,3 +89,13 @@ export const deleteRestaurant: RequestHandler = async (req, res) => {
     res.status(500).json({ message: e })
   }
 };
+
+export const getRestaurants: RequestHandler = async(req, res) => {
+  try{
+    const restaurants = await Restaurant.find({}, {name: 1, description: 1, isNew: 1});
+    return res.json(restaurants)
+  } catch(e) {
+    console.error(`[ERROR] - getRestaurants - error: ${e}`)
+    res.status(500).json({ message: e })
+  }
+};

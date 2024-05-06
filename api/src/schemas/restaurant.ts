@@ -13,7 +13,11 @@ const restaurantSchema = new Schema({
   menu: [{
     type: Types.ObjectId,
     ref: 'product'
-  }]
+  }],
+  isNew: {
+    type: Boolean,
+    default: true
+  }
 }, {
   versionKey: false
 });
