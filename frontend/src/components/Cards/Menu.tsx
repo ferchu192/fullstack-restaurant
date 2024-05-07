@@ -1,6 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from 'react';
 
+// Hooks
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../store';
+import { addProduct, decrementProduct } from '../../store/shopReducer';
+
 // Styled-Components
 import styled from 'styled-components';
 
@@ -106,6 +111,7 @@ export interface MenuCardInterface {
   headers: TypeHeader[];
   key: string;
   onClick?: () => void;
+  idProduct: string;
 }
 
 const MenuCard = (props: MenuCardInterface) => {
@@ -119,7 +125,10 @@ const MenuCard = (props: MenuCardInterface) => {
     ingredients,
     headers,
     onClick,
+    idProduct,
   } = props;
+
+  const dispatch = useDispatch<AppDispatch>();
 
   return (
     <Container id="card-container" key={`${key}-${title}`} onClick={onClick}>
@@ -153,7 +162,8 @@ const MenuCard = (props: MenuCardInterface) => {
       <Footer id="footer">
         <CounterContainer id="menu-counter-container">
           <Counter
-            update={(newValue) => console.log('newValue: ', newValue)}
+            increment={() => dispatch(addProduct({ id: idProduct, name: title, price }))}
+            decrement={() => dispatch(decrementProduct({id: idProduct, name: title, price}))}
           />
         </CounterContainer>
         <PriceContainer id="price-container">

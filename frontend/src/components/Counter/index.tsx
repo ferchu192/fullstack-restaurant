@@ -37,23 +37,29 @@ const Count = styled.div`
 `;
 
 interface Props {
-  update: (newValue: number) => void;
+  increment: () => void;
+  decrement: () => void;
   initValue?: number;
 }
 
 const Counter = (props: Props) => {
-  const { update, initValue } = props;
+  const { increment, decrement, initValue } = props;
 
   const [count, setCount] = useState(initValue || 0);
 
   const onChange = (operator: string) => {
     let newCount;
 
-    if (operator == 'MINUS') newCount = count - 1;
-    else newCount = count + 1;
+    if (operator == 'MINUS') {
+      newCount = count - 1;
+      decrement();
+    }
+    else {
+      newCount = count + 1;
+      increment()
+    }
 
     if (newCount >= 0) {
-      update(newCount);
       setCount(newCount);
     }
   }
