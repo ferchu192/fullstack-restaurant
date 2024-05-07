@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, Types } from 'mongoose';
 
 const productSchema = new Schema({
   name: {
@@ -16,7 +16,7 @@ const productSchema = new Schema({
   type: {
     type: String
   },
-  imgPath: {
+  image: {
     type: String
   },
   ingredients: [{

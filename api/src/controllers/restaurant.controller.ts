@@ -1,7 +1,9 @@
 import { RequestHandler } from 'express';
 import { ObjectId } from 'mongodb';
+import product from '../schemas/product';
 
 import Restaurant from '../schemas/restaurant';
+import Product from '../schemas/product';
 
 /* 
  ---------------------------------- RESTAURANT ----------------------------------
@@ -66,15 +68,21 @@ export const getRestaurantMenu: RequestHandler = async (req, res) => {
     const {
       id,
       cursor, // Cursor to the last product
+      page, // For pagination
     } = body;
 
-    const idRestaurant = new ObjectId(id);
-    const restaurant = await Restaurant.aggregate([
-      { $match: { _id: idRestaurant } },
-      { $project: { result: { $slice: ["$menu", cursor, 10] } } }
-    ]);
+    const restaurant = await Restaurant.findById(id)
+      .populate({
+        path: 'menu',
+        options: {
+          skip: cursor, // Saltar los primeros 10 elementos
+          limit: page // Limitar los resultados a los siguientes 10 elementos del menú
+        }
+      });
+    
+    console.log('restaurant: ', restaurant);
+    res.send(restaurant?.menu)
 
-    res.json(restaurant);
   } catch (e) {
     console.error(`[ERROR] - getRestaurantMenu - error: ${e}`)
     res.status(500).json({ message: e })
@@ -82,11 +90,11 @@ export const getRestaurantMenu: RequestHandler = async (req, res) => {
 }
 
 export const deleteRestaurant: RequestHandler = async (req, res) => {
-  try{
+  try {
     const restaurant = await Restaurant.findByIdAndDelete(req.params.id);
     if (!restaurant) return res.status(204).json();
     return res.json(restaurant)
-  } catch(e) {
+  } catch (e) {
     console.error(`[ERROR] - deleteRestaurant - error: ${e}`)
     res.status(500).json({ message: e })
   }
@@ -102,8 +110,8 @@ export const deleteRestaurant: RequestHandler = async (req, res) => {
 //   }
 // };
 
-export const getRestaurants: RequestHandler = async(req, res) => {
-  try{
+export const getRestaurants: RequestHandler = async (req, res) => {
+  try {
     const { body } = req;
     const {
       limit,
@@ -117,7 +125,7 @@ export const getRestaurants: RequestHandler = async(req, res) => {
       restaurants,
       totalCount,
     })
-  } catch(e) {
+  } catch (e) {
     console.error(`[ERROR] - getRestaurants - error: ${e}`)
     res.status(500).json({ message: e })
   }
