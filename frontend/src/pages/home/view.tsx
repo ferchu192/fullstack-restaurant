@@ -42,8 +42,8 @@ interface Props {
 const View = (props: Props) => {
   const { restaurants, totalCount } = props;
 
-  const fetchMore: (cursor: number) => Promise<RestaurantCardInterface[]> = async (cursor: number) => {
-    const result = await getRestaurants(cursor, 5);
+  const fetchMore: (skip: number) => Promise<RestaurantCardInterface[]> = async (skip: number) => {
+    const result = await getRestaurants(skip, 5);
     return parseRestaurants(result.restaurants);
   }
 

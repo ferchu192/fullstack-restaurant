@@ -4,7 +4,9 @@ import React, { useState, useEffect } from 'react';
 // Styled-Components
 import styled from 'styled-components';
 
+// Components
 import Tag, { TypeHeader } from '../Tag';
+import Counter from '../Counter';
 
 const Container = styled.div`
   height: 15rem;
@@ -19,11 +21,6 @@ const Container = styled.div`
   padding: 1rem;
   position: relative;
   background-color: #fffffff2;
-  transition: transform 0.3s ease;
-  transition: transform 0.3s ease;
-  &:hover {
-    transform: scale(1.015);
-  }
 `;
 
 const Picture = styled.img`
@@ -78,6 +75,7 @@ const Footer = styled.div`
   display: flex;
   height: 2rem;
   align-items: center;
+  margin-top: auto;
 `;
 
 const Button = styled.div`
@@ -91,7 +89,11 @@ const Button = styled.div`
   border: 1px solid gray;
   color: white;
   font-weight: bold;
-  align-items: center;
+`;
+
+const CounterContainer = styled.div`
+  width: 12rem;
+  margin-top: auto;
 `;
 
 const PriceContainer = styled.div`
@@ -162,9 +164,14 @@ const MenuCard = (props: MenuCardInterface) => {
         </TextContainer>
       </DescriptionContainer>
       <Footer id="footer">
-        <Button id="button">
+        {/* <Button id="button">
           Order
-        </Button>
+        </Button> */}
+        <CounterContainer id="menu-counter-container">
+          <Counter
+            update={(newValue) => console.log('newValue: ', newValue)}
+          />
+        </CounterContainer>
         <PriceContainer id="price-container">
           <Price id="price">
             {`$${price}`}

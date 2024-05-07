@@ -44,7 +44,7 @@ const View = (props: Props) => {
   const { products, idRestaurant } = props;
 
   const fetchMore: (cursor: number) => Promise<MenuCardInterface[]> = async (cursor: number) => {
-    const result = await getMenu(idRestaurant, cursor, 5);
+    const result = await getMenu(idRestaurant, cursor, 4);
     return parseMenu(result.menu);
   }
 

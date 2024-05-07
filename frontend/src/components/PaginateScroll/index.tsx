@@ -50,6 +50,7 @@ const PaginateScroll = (props: Props) => {
     if (refetch) {
       fetchMore(currentElements?.length)
         .then((data) => {
+          // Stop fetching when data it's empty
           if (!data.length) setStopFetching(true)
           else {
             setCurrentElements((prev) => [...prev, ...data])

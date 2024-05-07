@@ -18,7 +18,7 @@ const Menu = (props: any) => {
   const { idRestaurant } = useParams();
 
   const loadMenu = async () => {
-    const result = await getMenu(idRestaurant || '', 0, 5)
+    const result = await getMenu(idRestaurant || '', 0, 6)
     setProducts(result.menu);
   };
 

@@ -14,7 +14,7 @@ const Home = () => {
   const [totalCount, setTotalCount] = useState(0);
 
   const loadRestaurants = async () => {
-    const result = await getRestaurants(0, 5)
+    const result = await getRestaurants(0, 6)
     setRestaurants(result.restaurants);
     setTotalCount(result.totalCount);
   };
