@@ -78,19 +78,6 @@ const Footer = styled.div`
   margin-top: auto;
 `;
 
-const Button = styled.div`
-  width: 12rem;
-  display: flex;
-  justify-content: center;
-  height: 1.5rem;
-  cursor: pointer;
-  border-radius: 24px;
-  background-color: #437cc5;
-  border: 1px solid gray;
-  color: white;
-  font-weight: bold;
-`;
-
 const CounterContainer = styled.div`
   width: 12rem;
   margin-top: auto;
@@ -164,9 +151,6 @@ const MenuCard = (props: MenuCardInterface) => {
         </TextContainer>
       </DescriptionContainer>
       <Footer id="footer">
-        {/* <Button id="button">
-          Order
-        </Button> */}
         <CounterContainer id="menu-counter-container">
           <Counter
             update={(newValue) => console.log('newValue: ', newValue)}

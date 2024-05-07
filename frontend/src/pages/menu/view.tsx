@@ -5,6 +5,8 @@ import styled from 'styled-components';
 
 // Components
 import PaginateScroll, { TypeCard } from '../../components/PaginateScroll';
+import BackLink from '../../components/BackLink';
+import Shopping from '../../components/Shopping';
 
 // Interfaces
 import { MenuCardInterface } from '../../components/Cards/Menu';
@@ -20,17 +22,24 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  align-items: center;
 `;
 
 const Header = styled.div`
   text-align: center;
-  justify-content: center;
+  /* justify-content: center; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  justify-content: space-around;
+  width: 100%;
 `;
 
 const H1 = styled.h1`
   color: white;
   font-family: Roboto Slab, serif;
   font-size: 3rem;
+  margin-top: 0;
 `;
 
 const ID_BASE = 'menu-view';
@@ -51,9 +60,11 @@ const View = (props: Props) => {
   return (
     <Container id={`${ID_BASE}-container`}>
       <Header id={`${ID_BASE}-header`}>
+        <BackLink />
         <H1>
           MENU
         </H1>
+        <Shopping count={2}/>
       </Header>
       <PaginateScroll
         elements={parseMenu(products)}
