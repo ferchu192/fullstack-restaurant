@@ -17,7 +17,7 @@ const Container = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-template-columns: ${(props: any) => `repeat(${props['grid-template-columns']}, minmax(200px, 1fr))`};
   grid-gap: 5rem;
   justify-items: center;
 `;
@@ -25,8 +25,9 @@ const Grid = styled.div`
 interface Props {
   fetchMore: (cursor: number) => Promise<any[]>,
   elements: any[],
-  totalCount?: number,
+  // totalCount: number,
   type: TypeCard,
+  templateColumns: number,
 }
 
 const ID_CONTAINER = 'paginate-scroll-container';
@@ -37,27 +38,34 @@ const PaginateScroll = (props: Props) => {
     fetchMore,
     // totalCount,
     type,
+    templateColumns,
   } = props;
 
   const [currentElements, setCurrentElements] = useState<any[]>([]);
   const [refetch, setRefetch] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [stopFetching, setStopFetching] = useState(false);
 
   useEffect(() => {
-    if ((refetch) && (!loading)) {
-      console.log('REFETCH');
-      setLoading(true);
+    if (refetch) {
       fetchMore(currentElements?.length)
         .then((data) => {
-          setCurrentElements((prev) => [...prev, ...data])
-          setRefetch(false);
-          setLoading(false);
+          if (!data.length) setStopFetching(true)
+          else {
+            setCurrentElements((prev) => [...prev, ...data])
+            setRefetch(false);
+            setLoading(false);
+          }
         })
         .catch((e) => {
           console.error('Error on refetch: ', e);
         })
     }
   }, [refetch]);
+
+  useEffect(() => {
+    if ((loading) && (!stopFetching)) setRefetch(true)
+  }, [loading]);
 
   useEffect(() => {
     const scrollElement = document.getElementById(ID_CONTAINER);
@@ -69,8 +77,8 @@ const PaginateScroll = (props: Props) => {
           const { scrollTop, scrollHeight, clientHeight } = scrollElement;
 
           // Made refetch query before the scroll reaches the bottom 
-          if (scrollTop + 2 * clientHeight >= scrollHeight) {
-            setRefetch(true);
+          if (scrollTop + 1.01 * clientHeight >= scrollHeight) {
+            setLoading(true);
           }
         }
       )
@@ -105,7 +113,7 @@ const PaginateScroll = (props: Props) => {
 
   return (
     <Container id={ID_CONTAINER}>
-      <Grid id={`${ID_CONTAINER}-grid`}>
+      <Grid id={`${ID_CONTAINER}-grid`} grid-template-columns={templateColumns} >
         {
           renderType(type)
         }

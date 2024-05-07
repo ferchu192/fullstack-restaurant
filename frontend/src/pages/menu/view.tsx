@@ -58,8 +58,8 @@ const View = (props: Props) => {
       <PaginateScroll
         elements={parseMenu(products)}
         fetchMore={fetchMore}
-        // totalCount={totalCount}
         type={TypeCard.menu}
+        templateColumns={2}
       />
     </Container>
   )

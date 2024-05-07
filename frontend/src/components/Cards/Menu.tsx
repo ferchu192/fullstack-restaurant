@@ -7,18 +7,19 @@ import styled from 'styled-components';
 import Tag, { TypeHeader } from '../Tag';
 
 const Container = styled.div`
-  height: 25rem;
-  width: 25rem;
-  cursor: pointer;
+  height: 15rem;
+  width: 35rem;
+  /* cursor: pointer; */
   box-shadow: rgba(0, 0, 0, 0.12) 0px 8px 24px;
   border-radius: 24px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   gap: 0.5rem;
   padding: 1rem;
   position: relative;
   background-color: #fffffff2;
+  transition: transform 0.3s ease;
   transition: transform 0.3s ease;
   &:hover {
     transform: scale(1.015);
@@ -26,11 +27,14 @@ const Container = styled.div`
 `;
 
 const Picture = styled.img`
-  height: 14rem;
-  width: 20rem;
+  height: 7rem;
+  width: 12rem;
 `;
 const Title = styled.h2`
-  text-align: center;
+`;
+
+const DescriptionContainer = styled.div`
+  display: flex;
 `;
 
 const Description = styled.div`
@@ -38,8 +42,61 @@ const Description = styled.div`
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
+  height: fit-content;
+`;
+
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  gap: 2rem;
   padding-inline: 1rem;
+  font-style: italic;
+`;
+
+const IngredientsContainer = styled.div`
+  display: flex;
+`;
+
+const Ingredients = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  padding-inline: 1rem;
+  height: fit-content;
+  color: #a09f9f;
+`;
+
+const Price = styled.span`
+  text-align: end;
+`;
+
+const Footer = styled.div`
+  display: flex;
+  height: 2rem;
+  align-items: center;
+`;
+
+const Button = styled.div`
+  width: 12rem;
+  display: flex;
+  justify-content: center;
+  height: 1.5rem;
+  cursor: pointer;
+  border-radius: 24px;
+  background-color: #437cc5;
+  border: 1px solid gray;
+  color: white;
+  font-weight: bold;
+  align-items: center;
+`;
+
+const PriceContainer = styled.div`
+  width: 60%;
+  text-align: end;
 `;
 
 const TagContainer = styled.div`
@@ -71,8 +128,6 @@ const MenuCard = (props: MenuCardInterface) => {
     type,
     image,
     ingredients,
-    isVegan,
-    isCeliac,
     headers,
     onClick,
   } = props;
@@ -82,17 +137,40 @@ const MenuCard = (props: MenuCardInterface) => {
       <Title id="div-container">
         {title}
       </Title>
-      <Picture id="picture" src={`${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/public/${image}`} />
-      {/* <div style={{ height: '15rem', width: '15rem', backgroundColor: '#bab3b373' }} /> */}
-      {/* Photo by <a href="https://www.shopify.com/stock-photos/@thenomadbrodie?utm_campaign=photo_credit&amp;utm_content=Browse+Free+HD+Images+of+Restaurant+Entrance+Lights+Vibrant+Alleyway&amp;utm_medium=referral&amp;utm_source=credit">Brodie</a> from <a href="https://www.shopify.com/stock-photos/restaurant?utm_campaign=photo_credit&amp;utm_content=Browse+Free+HD+Images+of+Restaurant+Entrance+Lights+Vibrant+Alleyway&amp;utm_medium=referral&amp;utm_source=credit">Burst</a> */}
       <TagContainer id="tag-container">
         {
           headers.map((header, index) => <Tag type={header} key={`${index}`} />)
         }
       </TagContainer>
-      <Description id="description">
-        {description}
-      </Description>
+      <DescriptionContainer id="description-container">
+        <Picture id="picture" src={`${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/public/${image}`} />
+        <TextContainer id="text-container">
+          <Description id="description">
+            {description}
+          </Description>
+          <IngredientsContainer id="ingredients-container">
+            <span>Ingredients:</span>
+            <Ingredients id="ingredients">
+              {
+                ingredients.map((ingredient, index) => {
+                  if (ingredients?.length - 1 <= index) return `${ingredient}`
+                  return `${ingredient}, `
+                })
+              }
+            </Ingredients>
+          </IngredientsContainer>
+        </TextContainer>
+      </DescriptionContainer>
+      <Footer id="footer">
+        <Button id="button">
+          Order
+        </Button>
+        <PriceContainer id="price-container">
+          <Price id="price">
+            {`$${price}`}
+          </Price>
+        </PriceContainer>
+      </Footer>
     </Container>
   )
 };

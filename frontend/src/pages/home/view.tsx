@@ -57,8 +57,9 @@ const View = (props: Props) => {
       <PaginateScroll
         elements={parseRestaurants(restaurants)}
         fetchMore={fetchMore}
-        totalCount={totalCount}
+        // totalCount={totalCount}
         type={TypeCard.restaurant}
+        templateColumns={3}
       />
     </Container>
   )

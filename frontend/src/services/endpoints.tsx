@@ -7,6 +7,7 @@ interface RestaurantResponse {
 
 interface MenuResponse {
   menu: any,
+  totalCount: number,
 }
 
 export const getRestaurants = async (cursor: Number, limit: Number): Promise<RestaurantResponse> => {
@@ -22,6 +23,7 @@ export const getMenu = async (idRestaurant: string, cursor: Number, page: Number
   const path = `${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/restaurant`;
   const result = await axios.post(path, { id: idRestaurant, cursor, page });
   return {
-    menu: result?.data
+    menu: result?.data?.menu,
+    totalCount: result?.data?.totalCount,
   };
 }
