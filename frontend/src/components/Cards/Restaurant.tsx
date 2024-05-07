@@ -1,6 +1,9 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from 'react';
 
+// Hooks
+import { useNavigate } from 'react-router-dom';
+
 // Styled-Components
 import styled from 'styled-components';
 
@@ -40,6 +43,9 @@ const Description = styled.div`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
   padding-inline: 1rem;
+  font-style: italic;
+  color: #7d7d7d;
+  padding-top: 1rem;
 `;
 
 const TagContainer = styled.div`
@@ -48,25 +54,33 @@ const TagContainer = styled.div`
   gap: 0.3rem;
   display: flex;
 `;
-export interface CardInterface {
+export interface RestaurantCardInterface {
   title: string;
   description: string;
   headers: TypeHeader[];
   image: string;
   key: string;
+  idRestaurant: string;
 }
 
-const Card = (props: CardInterface) => {
+const RestaurantCard = (props: RestaurantCardInterface) => {
   const {
     key,
     title,
     description,
     image,
     headers,
+    idRestaurant,
   } = props;
+
+  const navigate = useNavigate();
+
+  const onClick = () => {
+    navigate(`/restaurant/${idRestaurant}`);
+  };
   
   return (
-    <Container id="card-container" key={`${key}-${title}`}>
+    <Container id="card-container" key={`${key}-${title}`} onClick={onClick}>
       <Title id="div-container">
         {title}
       </Title>
@@ -85,4 +99,4 @@ const Card = (props: CardInterface) => {
   )
 };
 
-export default Card;
+export default RestaurantCard;

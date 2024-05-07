@@ -7,14 +7,14 @@ import styled from 'styled-components';
 import PaginateScroll, { TypeCard } from '../../components/PaginateScroll';
 
 // Interfaces
-import { RestaurantCardInterface } from '../../components/Cards/Restaurant'
-import { Restaurant } from './Restaurant'
+import { MenuCardInterface } from '../../components/Cards/Menu';
+import { Menu } from './Menu';
 
 // Endpoints
-import { getRestaurants } from '../../services/endpoints'
+import { getMenu } from '../../services/endpoints'
 
 // Helpers
-import { parseRestaurants } from './helpers';
+import { parseMenu } from './helpers';
 
 const Container = styled.div`
   display: flex;
@@ -33,32 +33,33 @@ const H1 = styled.h1`
   font-size: 3rem;
 `;
 
-const ID_BASE = 'home-view';
+const ID_BASE = 'menu-view';
+
 interface Props {
-  restaurants: Restaurant[],
-  totalCount: number,
+  products: Menu[],
+  idRestaurant: string,
 }
 
 const View = (props: Props) => {
-  const { restaurants, totalCount } = props;
+  const { products, idRestaurant } = props;
 
-  const fetchMore: (cursor: number) => Promise<RestaurantCardInterface[]> = async (cursor: number) => {
-    const result = await getRestaurants(cursor, 5);
-    return parseRestaurants(result.restaurants);
+  const fetchMore: (cursor: number) => Promise<MenuCardInterface[]> = async (cursor: number) => {
+    const result = await getMenu(idRestaurant, cursor, 5);
+    return parseMenu(result.menu);
   }
 
   return (
     <Container id={`${ID_BASE}-container`}>
       <Header id={`${ID_BASE}-header`}>
         <H1>
-          CHOICE A RESTAURANT
+          MENU
         </H1>
       </Header>
       <PaginateScroll
-        elements={parseRestaurants(restaurants)}
+        elements={parseMenu(products)}
         fetchMore={fetchMore}
-        totalCount={totalCount}
-        type={TypeCard.restaurant}
+        // totalCount={totalCount}
+        type={TypeCard.menu}
       />
     </Container>
   )

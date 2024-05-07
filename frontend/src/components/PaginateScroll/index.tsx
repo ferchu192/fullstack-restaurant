@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 // Styled-Components
 import styled from 'styled-components';
+import MenuCard, { MenuCardInterface } from '../Cards/Menu';
 
 // Interca
-import Card, { CardInterface } from '../Card';
+import RestaurantCard, { RestaurantCardInterface } from '../Cards/Restaurant';
 
 const Container = styled.div`
   padding: 2rem;
@@ -22,9 +23,10 @@ const Grid = styled.div`
 `;
 
 interface Props {
-  fetchMore: (cursor: number) => Promise<CardInterface[]>,
-  elements: CardInterface[],
-  totalCount: number,
+  fetchMore: (cursor: number) => Promise<any[]>,
+  elements: any[],
+  totalCount?: number,
+  type: TypeCard,
 }
 
 const ID_CONTAINER = 'paginate-scroll-container';
@@ -33,10 +35,11 @@ const PaginateScroll = (props: Props) => {
   const {
     elements,
     fetchMore,
-    totalCount,
+    // totalCount,
+    type,
   } = props;
 
-  const [currentElements, setCurrentElements] = useState(elements || []);
+  const [currentElements, setCurrentElements] = useState<any[]>([]);
   const [refetch, setRefetch] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -76,22 +79,44 @@ const PaginateScroll = (props: Props) => {
   }, []);
 
   useEffect(() => {
-    if (elements) setCurrentElements(elements);
+    if (elements as RestaurantCardInterface[]) setCurrentElements(elements);
+    if (elements as MenuCardInterface[]) setCurrentElements(elements);
   }, [elements]);
+
+  const renderType = (type: TypeCard) => {
+    switch (type) {
+      case 'RESTAURANT':
+        return currentElements.map((element) => (
+          <RestaurantCard
+            {...element}
+          />
+        ))
+
+      case 'MENU':
+        return currentElements.map((element) => (
+          <MenuCard
+            {...element}
+          />
+        ))
+      default:
+        return <></>
+    }
+  };
 
   return (
     <Container id={ID_CONTAINER}>
       <Grid id={`${ID_CONTAINER}-grid`}>
         {
-          currentElements.map((element) => (
-            <Card
-              {...element}
-            />
-          ))
+          renderType(type)
         }
       </Grid>
     </Container>
   )
 };
+
+export enum TypeCard {
+  restaurant = 'RESTAURANT',
+  menu = 'MENU',
+}
 
 export default PaginateScroll;
