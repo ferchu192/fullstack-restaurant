@@ -81,7 +81,7 @@ export const getRestaurantMenu: RequestHandler = async (req, res) => {
       });
     
     console.log('restaurant: ', restaurant);
-    res.send(restaurant?.menu)
+    res.send(restaurant)
 
   } catch (e) {
     console.error(`[ERROR] - getRestaurantMenu - error: ${e}`)
