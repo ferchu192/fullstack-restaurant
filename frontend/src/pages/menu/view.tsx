@@ -64,7 +64,7 @@ const View = (props: Props) => {
         <H1>
           MENU
         </H1>
-        <Shopping count={2}/>
+        <Shopping />
       </Header>
       <PaginateScroll
         elements={parseMenu(products)}

@@ -19,7 +19,8 @@ export const parseMenu = (menus: Menu[]): MenuCardInterface[] => {
       isVegan: menu.isVegan,
       isCeliac: menu.isCeliac,
       headers,
-      key: `menu-${index}`
+      key: `menu-${index}`,
+      idProduct: menu._id,
     }
   });
   return result;
