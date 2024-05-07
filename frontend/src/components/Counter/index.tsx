@@ -12,19 +12,20 @@ const CounterContainer = styled.div`
 
 const OperatorBubble = styled.button`
   border-radius: 10rem;
-  background-color: #437cc5;
-  border: 1px solid gray;
-  color: white;
+  background: none;
+  border: 0px solid;
+  color: #4b8fe5;
   font-weight: bold;
   align-items: center;
-  height: 1.2rem;
   cursor: pointer;
+  text-align: center;
+  font-size: 2rem;
 `;
 
 const Count = styled.div`
   border-radius: 24px;
-  background-color: #437cc5;
-  border: 1px solid gray;
+  background-color: #4b8fe5;
+  border: 1px solid #e0e0e0;
   color: white;
   font-weight: bold;
   align-items: center;
