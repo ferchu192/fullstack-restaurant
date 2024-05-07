@@ -75,6 +75,7 @@ export const editProduct: RequestHandler = async (req, res) => {
       ingredients,
       isVegan,
       isCeliac,
+      image,
     } = body;
 
     const product = await Product.updateOne(
@@ -88,6 +89,7 @@ export const editProduct: RequestHandler = async (req, res) => {
           ingredients,
           isVegan,
           isCeliac,
+          image,
         }
       }
     )
