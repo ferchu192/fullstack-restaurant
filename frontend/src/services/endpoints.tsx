@@ -19,9 +19,9 @@ export const getRestaurants = async (skip: Number, limit: Number): Promise<Resta
   };
 }
 
-export const getMenu = async (idRestaurant: string, cursor: Number, page: Number): Promise<MenuResponse> => {
+export const getMenu = async (idRestaurant: string, skip: Number, limit: Number): Promise<MenuResponse> => {
   const path = `${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/restaurant`;
-  const result = await axios.post(path, { id: idRestaurant, cursor, page });
+  const result = await axios.post(path, { id: idRestaurant, skip, limit });
   return {
     menu: result?.data?.menu,
     totalCount: result?.data?.totalCount,

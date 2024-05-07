@@ -43,8 +43,8 @@ interface Props {
 const View = (props: Props) => {
   const { products, idRestaurant } = props;
 
-  const fetchMore: (cursor: number) => Promise<MenuCardInterface[]> = async (cursor: number) => {
-    const result = await getMenu(idRestaurant, cursor, 4);
+  const fetchMore: (skip: number) => Promise<MenuCardInterface[]> = async (skip: number) => {
+    const result = await getMenu(idRestaurant, skip, 4);
     return parseMenu(result.menu);
   }
 
