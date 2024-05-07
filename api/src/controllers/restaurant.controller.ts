@@ -67,16 +67,16 @@ export const getRestaurantMenu: RequestHandler = async (req, res) => {
     const { body } = req;
     const {
       id,
-      cursor, // Cursor to the last product
-      page, // For pagination
+      skip, // Cursor to the last product
+      limit, // For pagination
     } = body;
 
     const restaurant = await Restaurant.findById(id)
       .populate({
         path: 'menu',
         options: {
-          skip: cursor, // Saltar los primeros 10 elementos
-          limit: page // Limitar los resultados a los siguientes 10 elementos del menú
+          skip: skip, // Saltar los primeros 10 elementos
+          limit: limit // Limitar los resultados a los siguientes 10 elementos del menú
         }
       });
     
@@ -114,11 +114,11 @@ export const getRestaurants: RequestHandler = async (req, res) => {
   try {
     const { body } = req;
     const {
-      limit,
-      cursor, // Cursor to the last product
+      skip,
+      limit, // Cursor to the last product
     } = body;
 
-    const restaurants = await Restaurant.find().skip(cursor).limit(limit);
+    const restaurants = await Restaurant.find().skip(skip).limit(limit);
     const totalCount = await Restaurant.countDocuments();
 
     res.json({
