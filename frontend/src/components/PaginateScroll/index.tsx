@@ -37,6 +37,8 @@ const EmptyMessage = styled.span`
   align-items: center;
   padding: 2rem;
   border: 1px solid #b9b9b9;
+  font-size: 2rem;
+  color: antiquewhite;
 `;
 
 interface ContainerProps {

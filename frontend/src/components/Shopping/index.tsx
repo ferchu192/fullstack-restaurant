@@ -77,6 +77,8 @@ const EmptyMessage = styled.span`
   text-align: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  font-size: 2rem;
+  color: antiquewhite;
 `;
 
 const ButtonOrder = styled.button<ButtonOrder>`
@@ -158,7 +160,7 @@ const Shopping = () => {
       <CiShoppingBasket
         id="shopping-basket"
         style={{
-          color: '#e4e3de',
+          color: 'antiquewhite',
           fontSize: '2.5rem',
           marginTop: 'auto',
           cursor: 'pointer',
