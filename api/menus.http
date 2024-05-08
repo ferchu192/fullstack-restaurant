@@ -1,0 +1,322 @@
+@api = http://localhost:3000
+
+### ---------------------------------- RESTAURANT ----------------------------------
+POST {{api}}/create-restaurant
+Content-Type: application/json
+
+{
+  "name": "Garden of Flavors",
+  "description": "A charming place where flavors blend with nature. Enjoy a unique culinary experience surrounded by lush gardens and gastronomic delights.",
+  "image": "picturesque-restaurant-under-fairy-lights.jpg"
+}
+###
+POST {{api}}/create-restaurant
+Content-Type: application/json
+
+{
+  "name": "The Chef's Cave",
+  "description": "Venture into the depths of creative cuisine at The Chef's Cave. Discover innovative dishes and surprising flavors in an intimate and cozy setting.",
+  "image": "cozy-empty-restaurant.jpg"
+}
+
+###
+POST {{api}}/create-restaurant
+Content-Type: application/json
+
+{
+  "name": "Flavors of the World",
+  "description": "A gastronomic journey around the world awaits you at Flavors of the World. Explore a wide variety of international cuisines and discover new and exciting flavors in every bite.",
+  "image": "greek-dinner-in-restaurant.jpg"
+}
+
+###
+POST {{api}}/create-restaurant
+Content-Type: application/json
+
+{
+  "name": "Oyster Bar",
+  "description": "Step into a world of refined spirits and cozy ambiance at The Whiskey Lounge. Explore an extensive selection of whiskies from around the globe and savor unique cocktails crafted by expert mixologists.",
+  "image": "vintage-pin-up-art-perched-atop-an-oyster-bar-sign.jpg"
+}
+###
+POST {{api}}/create-restaurant
+Content-Type: application/json
+
+{
+  "name": "Fish & Chips",
+  "description": "A celestial culinary experience awaits you at Starry Sky. Delight in gourmet dishes under a sky full of stars and enjoy the magic of the night.",
+  "image": "fish-and-chips-sign.jpg"
+}
+###
+POST {{api}}/create-restaurant
+Content-Type: application/json
+
+{
+  "name": "Chez Marie",
+  "description": "An elegant gastronomic experience awaits you at The French Bistro. Delight in refined French cuisine and let yourself be carried away by the Parisian charm.",
+  "image": "chez-marie-restaurant.jpg"
+}
+
+###
+POST {{api}}/create-restaurant
+Content-Type: application/json
+
+{
+  "name": "Oriental Flavors",
+  "description": "Embark on a culinary journey through Asia at Oriental Flavors. Discover exotic flavors and traditional dishes of Oriental cuisine in a unique and vibrant atmosphere.",
+  "image": "dim-sum-restaurant-neon.jpg"
+}
+###
+POST {{api}}/create-restaurant
+Content-Type: application/json
+
+{
+  "name": "Mexican Corner",
+  "description": "Feel the passion and energy of Mexico at Mexican Corner. Discover authentic Mexican cuisine and enjoy spicy and colorful flavors in a festive and welcoming atmosphere.",
+  "image": "two-tacos.jpg"
+}
+
+### Para la paginacion del menu
+
+POST {{api}}/restaurant
+Content-Type: application/json
+
+{
+  "id": "663796bd818bbbed2ee61277",
+  "cursor": 2
+}
+
+###
+
+PUT {{api}}/restaurant
+Content-Type: application/json
+
+{
+  "id": "66379696818bbbed2ee61274",
+  "imagePath": "Las cadenas de comida mexicana son reconocidas por ofrecer una variedad de platillos inspirados en la vibrante cocina de México. Desde tacos y burritos hasta quesadillas y enchiladas, estas cadenas destacan por su autenticidad, sabores intensos y opciones personalizadas. Utilizando ingredientes frescos y auténticos, las cadenas de comida mexicana ofrecen una experiencia culinaria que celebra la diversidad y riqueza de la gastronomía mexicana."
+}
+
+PUT {{api}}/restaurant
+Content-Type: application/json
+
+{
+  "id": "66379696818bbbed2ee61274",
+  "description": "Las cadenas de comida mexicana son reconocidas por ofrecer una variedad de platillos inspirados en la vibrante cocina de México. Desde tacos y burritos hasta quesadillas y enchiladas, estas cadenas destacan por su autenticidad, sabores intensos y opciones personalizadas. Utilizando ingredientes frescos y auténticos, las cadenas de comida mexicana ofrecen una experiencia culinaria que celebra la diversidad y riqueza de la gastronomía mexicana."
+}
+
+PUT {{api}}/restaurant
+Content-Type: application/json
+
+{
+  "id": "66379696818bbbed2ee61274",
+  "description": "Las cadenas de comida mexicana son reconocidas por ofrecer una variedad de platillos inspirados en la vibrante cocina de México. Desde tacos y burritos hasta quesadillas y enchiladas, estas cadenas destacan por su autenticidad, sabores intensos y opciones personalizadas. Utilizando ingredientes frescos y auténticos, las cadenas de comida mexicana ofrecen una experiencia culinaria que celebra la diversidad y riqueza de la gastronomía mexicana."
+}
+
+PUT {{api}}/restaurant
+Content-Type: application/json
+
+{
+  "id": "66379696818bbbed2ee61274",
+  "description": "Las cadenas de comida mexicana son reconocidas por ofrecer una variedad de platillos inspirados en la vibrante cocina de México. Desde tacos y burritos hasta quesadillas y enchiladas, estas cadenas destacan por su autenticidad, sabores intensos y opciones personalizadas. Utilizando ingredientes frescos y auténticos, las cadenas de comida mexicana ofrecen una experiencia culinaria que celebra la diversidad y riqueza de la gastronomía mexicana."
+}
+
+PUT {{api}}/restaurant
+Content-Type: application/json
+
+{
+  "id": "66379696818bbbed2ee61274",
+  "description": "Las cadenas de comida mexicana son reconocidas por ofrecer una variedad de platillos inspirados en la vibrante cocina de México. Desde tacos y burritos hasta quesadillas y enchiladas, estas cadenas destacan por su autenticidad, sabores intensos y opciones personalizadas. Utilizando ingredientes frescos y auténticos, las cadenas de comida mexicana ofrecen una experiencia culinaria que celebra la diversidad y riqueza de la gastronomía mexicana."
+}
+
+PUT {{api}}/restaurant
+Content-Type: application/json
+
+{
+  "id": "66379696818bbbed2ee61274",
+  "description": "Las cadenas de comida mexicana son reconocidas por ofrecer una variedad de platillos inspirados en la vibrante cocina de México. Desde tacos y burritos hasta quesadillas y enchiladas, estas cadenas destacan por su autenticidad, sabores intensos y opciones personalizadas. Utilizando ingredientes frescos y auténticos, las cadenas de comida mexicana ofrecen una experiencia culinaria que celebra la diversidad y riqueza de la gastronomía mexicana."
+}
+
+PUT {{api}}/restaurant
+Content-Type: application/json
+
+{
+  "id": "66379696818bbbed2ee61274",
+  "description": "Las cadenas de comida mexicana son reconocidas por ofrecer una variedad de platillos inspirados en la vibrante cocina de México. Desde tacos y burritos hasta quesadillas y enchiladas, estas cadenas destacan por su autenticidad, sabores intensos y opciones personalizadas. Utilizando ingredientes frescos y auténticos, las cadenas de comida mexicana ofrecen una experiencia culinaria que celebra la diversidad y riqueza de la gastronomía mexicana."
+}
+
+###
+
+POST {{api}}/restaurants
+Content-Type: application/json
+
+{
+  "cursor": 1
+}
+### ---------------------------------- PRODUCT ----------------------------------
+POST {{api}}/create-product
+Content-Type: application/json
+
+{
+  "name": "Quinoa Burger",
+  "description": "Delicious vegetarian burger made with quinoa and fresh vegetables.",
+  "price": 9.99,
+  "ingredients": ["Quinoa", "Spinach", "Carrot", "Onion", "Garlic"],
+  "isVegan": true,
+  "isCeliac": true,
+  "restaurantId": "663961289ee7657a18ad0cc5"
+}
+###
+POST {{api}}/create-product
+Content-Type: application/json
+
+{
+  "name": "Vegan Sushi",
+  "description": "Traditional sushi but completely vegan, with a unique blend of vegetables and brown rice.",
+  "price": 12.50,
+  "ingredients": ["Brown rice", "Cucumber", "Avocado", "Carrot", "Nori seaweed"],
+  "isVegan": true,
+  "isCeliac": true,
+  "restaurantId": "663961289ee7657a18ad0cc5"
+}
+###
+POST {{api}}/create-product
+Content-Type: application/json
+
+{
+  "name": "Caesar Salad",
+  "description": "Classic Caesar salad with romaine lettuce, grilled chicken, croutons, and Caesar dressing.",
+  "price": 8.99,
+  "ingredients": ["Romaine lettuce", "Grilled chicken", "Croutons", "Parmesan cheese", "Caesar dressing"],
+  "isVegan": false,
+  "isCeliac": false,
+  "restaurantId": "663961289ee7657a18ad0cc5"
+}
+###
+POST {{api}}/create-product
+Content-Type: application/json
+
+{
+  "name": "Fish Tacos",
+  "description": "Fresh fish tacos with mango salsa and purple cabbage in corn tortillas.",
+  "price": 10.50,
+  "ingredients": ["Fresh fish fillet", "Mango", "Purple cabbage", "Corn tortillas", "Cilantro"],
+  "isVegan": false,
+  "isCeliac": true,
+  "restaurantId": "663961289ee7657a18ad0cc5"
+}
+###
+POST {{api}}/create-product
+Content-Type: application/json
+
+{
+  "name": "Vegetarian Pad Thai",
+  "description": "Thai rice noodle stir-fry with tofu, vegetables, and tamarind sauce.",
+  "price": 11.99,
+  "ingredients": ["Rice noodles", "Tofu", "Bean sprouts", "Onion", "Tamarind sauce"],
+  "isVegan": true,
+  "isCeliac": true,
+  "restaurantId": "663961289ee7657a18ad0cc5"
+}
+###
+POST {{api}}/create-product
+Content-Type: application/json
+
+{
+  "name": "Margherita Pizza",
+  "description": "Classic pizza with tomato sauce, fresh mozzarella, sliced tomatoes, and fresh basil.",
+  "price": 13.99,
+  "ingredients": ["Pizza dough", "Tomato sauce", "Mozzarella", "Tomato", "Basil"],
+  "isVegan": false,
+  "isCeliac": true,
+  "restaurantId": "663961289ee7657a18ad0cc5"
+}
+###
+POST {{api}}/create-product
+Content-Type: application/json
+
+{
+  "name": "Lentil Soup",
+  "description": "Comforting lentil soup with fresh vegetables and aromatic herbs.",
+  "price": 7.99,
+  "ingredients": ["Lentils", "Carrot", "Celery", "Onion", "Garlic"],
+  "isVegan": true,
+  "isCeliac": true,
+  "restaurantId": "663961289ee7657a18ad0cc5"
+}
+###
+POST {{api}}/create-product
+Content-Type: application/json
+
+{
+  "name": "Grilled Steak Burrito",
+  "description": "Classic Mexican burrito with grilled steak, rice, beans, cheese, guacamole, and salsa.",
+  "price": 10.99,
+  "ingredients": ["Grilled steak", "Rice", "Beans", "Cheese", "Guacamole"],
+  "isVegan": false,
+  "isCeliac": false,
+  "restaurantId": "663961289ee7657a18ad0cc5"
+}
+###
+POST {{api}}/create-product
+Content-Type: application/json
+
+{
+  "name": "Vegetable Curry",
+  "description": "Thai curry with a mix of fresh vegetables in a coconut and curry sauce.",
+  "price": 9.50,
+  "ingredients": ["Mixed vegetables", "Coconut milk", "Curry paste", "Bamboo shoots", "Cilantro"],
+  "isVegan": true,
+  "isCeliac": true,
+  "restaurantId": "663961289ee7657a18ad0cc5"
+}
+###
+POST {{api}}/create-product
+Content-Type: application/json
+
+{
+  "name": "Gluten-Free Chocolate Cake",
+  "description": "Decadent gluten-free chocolate cake, perfect for chocolate lovers.",
+  "price": 6.99,
+  "ingredients": ["Almond flour", "Cocoa powder", "Coconut sugar", "Eggs", "Coconut oil"],
+  "isVegan": false,
+  "isCeliac": true,
+  "restaurantId": "663961289ee7657a18ad0cc5"
+}
+
+###
+PUT {{api}}/product
+Content-Type: application/json
+
+{
+  "id": "6639982290fe2762b352e169",
+  "image": "products/red-velvet-delight.jpg"
+}
+### ---------------------------------- ORDER ----------------------------------
+
+POST {{api}}/create-order
+Content-Type: application/json
+
+{
+  "products": [
+    {
+      "id": "663796c1818bbbed2ee6127a",
+      "cant": 3
+    },
+    {
+      "id": "66379726818bbbed2ee6127e",
+      "cant": 1
+    }
+  ]
+}
+###
+
+GET {{api}}/order/6637b139a2d6609ada3ace50
+###
+
+PUT {{api}}/order
+Content-Type: application/json
+
+{
+  "id": "6637b139a2d6609ada3ace50",
+  "status": "taken"
+}
