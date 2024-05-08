@@ -3,6 +3,7 @@ import { RequestHandler } from 'express';
 
 import Restaurant from '../schemas/restaurant';
 import Product from '../schemas/product';
+import { DB_CONFIG } from '../config';
 
 /* 
  ---------------------------------- PRODUCT ----------------------------------
@@ -33,6 +34,7 @@ export const createProduct: RequestHandler = async (req, res) => {
       ingredients,
       isVegan,
       isCeliac,
+      image,
     } = body;
 
     const existRestaurant = await Restaurant.findOne({ _id: restaurantId })
@@ -46,6 +48,7 @@ export const createProduct: RequestHandler = async (req, res) => {
       ingredients,
       isVegan,
       isCeliac,
+      image,
     });
 
     const saved = await newProduct.save();
