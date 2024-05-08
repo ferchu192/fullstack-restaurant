@@ -154,7 +154,8 @@ Content-Type: application/json
   "ingredients": ["Quinoa", "Spinach", "Carrot", "Onion", "Garlic"],
   "isVegan": true,
   "isCeliac": true,
-  "restaurantId": "663961289ee7657a18ad0cc5"
+  "image": "products/vegan-burger.jpg"
+  "restaurantId": "663b629b86b42b95ff2202d8"
 }
 ###
 POST {{api}}/create-product
@@ -167,7 +168,8 @@ Content-Type: application/json
   "ingredients": ["Brown rice", "Cucumber", "Avocado", "Carrot", "Nori seaweed"],
   "isVegan": true,
   "isCeliac": true,
-  "restaurantId": "663961289ee7657a18ad0cc5"
+  "image": "products/vegan-sushi.jpg"
+  "restaurantId": "663b629b86b42b95ff2202d8"
 }
 ###
 POST {{api}}/create-product
@@ -180,7 +182,8 @@ Content-Type: application/json
   "ingredients": ["Romaine lettuce", "Grilled chicken", "Croutons", "Parmesan cheese", "Caesar dressing"],
   "isVegan": false,
   "isCeliac": false,
-  "restaurantId": "663961289ee7657a18ad0cc5"
+  "image": "products/ceasar-salad.jpg",
+  "restaurantId": "663b629b86b42b95ff2202d8"
 }
 ###
 POST {{api}}/create-product
@@ -193,7 +196,8 @@ Content-Type: application/json
   "ingredients": ["Fresh fish fillet", "Mango", "Purple cabbage", "Corn tortillas", "Cilantro"],
   "isVegan": false,
   "isCeliac": true,
-  "restaurantId": "663961289ee7657a18ad0cc5"
+  "image": "products/fish-tacos.jpg",
+  "restaurantId": "663b629b86b42b95ff2202d8"
 }
 ###
 POST {{api}}/create-product
@@ -206,7 +210,8 @@ Content-Type: application/json
   "ingredients": ["Rice noodles", "Tofu", "Bean sprouts", "Onion", "Tamarind sauce"],
   "isVegan": true,
   "isCeliac": true,
-  "restaurantId": "663961289ee7657a18ad0cc5"
+  "image": "products/vegan-pad-thai.jpg",
+  "restaurantId": "663b629b86b42b95ff2202d8"
 }
 ###
 POST {{api}}/create-product
@@ -219,7 +224,8 @@ Content-Type: application/json
   "ingredients": ["Pizza dough", "Tomato sauce", "Mozzarella", "Tomato", "Basil"],
   "isVegan": false,
   "isCeliac": true,
-  "restaurantId": "663961289ee7657a18ad0cc5"
+  "image": "products/pizza.jpg",
+  "restaurantId": "663b629b86b42b95ff2202d8"
 }
 ###
 POST {{api}}/create-product
@@ -232,7 +238,8 @@ Content-Type: application/json
   "ingredients": ["Lentils", "Carrot", "Celery", "Onion", "Garlic"],
   "isVegan": true,
   "isCeliac": true,
-  "restaurantId": "663961289ee7657a18ad0cc5"
+  "image": "products/lentil-soup.jpg",
+  "restaurantId": "663b629b86b42b95ff2202d8"
 }
 ###
 POST {{api}}/create-product
@@ -245,7 +252,8 @@ Content-Type: application/json
   "ingredients": ["Grilled steak", "Rice", "Beans", "Cheese", "Guacamole"],
   "isVegan": false,
   "isCeliac": false,
-  "restaurantId": "663961289ee7657a18ad0cc5"
+  "image": "products/burrito.jpg",
+  "restaurantId": "663b629b86b42b95ff2202d8"
 }
 ###
 POST {{api}}/create-product
@@ -258,8 +266,101 @@ Content-Type: application/json
   "ingredients": ["Mixed vegetables", "Coconut milk", "Curry paste", "Bamboo shoots", "Cilantro"],
   "isVegan": true,
   "isCeliac": true,
-  "restaurantId": "663961289ee7657a18ad0cc5"
+  "image": "products/vegan-curry.jpg",
+  "restaurantId": "663b629b86b42b95ff2202d8"
 }
+
+###
+POST {{api}}/create-product
+Content-Type: application/json
+
+{
+  "name": "Mushroom Risotto",
+  "description": "Creamy Italian risotto made with Arborio rice, mushrooms, and Parmesan cheese.",
+  "price": 12.99,
+  "ingredients": ["Arborio rice", "Mushrooms", "Vegetable broth", "Parmesan cheese", "Onion"],
+  "isVegan": false,
+  "isCeliac": true,
+  "image": "products/mushroom-risotto.jpg",
+  "restaurantId": "663b629b86b42b95ff2202d8"
+}
+
+###
+POST {{api}}/create-product
+Content-Type: application/json
+
+{
+  "name": "Quinoa Salad",
+  "description": "A refreshing salad with quinoa, cherry tomatoes, cucumber, and a tangy lemon dressing.",
+  "price": 7.99,
+  "ingredients": ["Quinoa", "Cherry tomatoes", "Cucumber", "Lemon juice", "Olive oil"],
+  "isVegan": true,
+  "isCeliac": true,
+  "image": "products/quinoa-salad.jpg",
+  "restaurantId": "663b629b86b42b95ff2202d8"
+}
+
+###
+POST {{api}}/create-product
+Content-Type: application/json
+
+{
+  "name": "Spinach and Feta Stuffed Mushrooms",
+  "description": "Delicious stuffed mushrooms filled with spinach, feta cheese, and herbs.",
+  "price": 10.50,
+  "ingredients": ["Mushrooms", "Spinach", "Feta cheese", "Garlic", "Herbs"],
+  "isVegan": false,
+  "isCeliac": true,
+  "image": "products/spinache-quiche.jpg",
+  "restaurantId": "663b629b86b42b95ff2202d8"
+}
+
+###
+POST {{api}}/create-product
+Content-Type: application/json
+
+{
+  "name": "Caprese Salad",
+  "description": "Classic Italian salad made with fresh tomatoes, mozzarella cheese, basil, and balsamic glaze.",
+  "price": 6.99,
+  "ingredients": ["Tomatoes", "Mozzarella cheese", "Basil", "Balsamic glaze", "Olive oil"],
+  "isVegan": false,
+  "isCeliac": true,
+  "image": "products/caprese-salad.jpg",
+  "restaurantId": "663b629b86b42b95ff2202d8"
+}
+
+###
+POST {{api}}/create-product
+Content-Type: application/json
+
+{
+  "name": "Greek Salad",
+  "description": "A refreshing salad with crisp lettuce, juicy tomatoes, cucumber, olives, and feta cheese, dressed with olive oil and herbs.",
+  "price": 8.50,
+  "ingredients": ["Lettuce", "Tomatoes", "Cucumber", "Olives", "Feta cheese"],
+  "isVegan": false,
+  "isCeliac": true,
+  "image": "products/greek-salad.jpg",
+  "restaurantId": "663b629b86b42b95ff2202d8"
+}
+
+###
+POST {{api}}/create-product
+Content-Type: application/json
+
+{
+  "name": "Veggie Wrap",
+  "description": "A flavorful wrap filled with hummus, roasted vegetables, avocado, and sprouts.",
+  "price": 9.25,
+  "ingredients": ["Hummus", "Roasted vegetables", "Avocado", "Sprouts", "Whole wheat wrap"],
+  "isVegan": true,
+  "isCeliac": true,
+  "image": "products/vegan-grap.jpg",
+  "restaurantId": "663b629b86b42b95ff2202d8"
+}
+
+
 ###
 POST {{api}}/create-product
 Content-Type: application/json
@@ -271,7 +372,8 @@ Content-Type: application/json
   "ingredients": ["Almond flour", "Cocoa powder", "Coconut sugar", "Eggs", "Coconut oil"],
   "isVegan": false,
   "isCeliac": true,
-  "restaurantId": "663961289ee7657a18ad0cc5"
+  "image": "products/chocolate-cake.jpg",
+  "restaurantId": "663b629b86b42b95ff2202d8"
 }
 
 ###
