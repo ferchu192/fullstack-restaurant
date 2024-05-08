@@ -22,16 +22,19 @@ const Grid = styled.div`
   justify-items: center;
 `;
 
-const ContainerEmpty = styled.span`
+const ContainerEmpty = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 `;
 
 const EmptyMessage = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
+  border: 1px solid #b9b9b9;
 `;
 
 interface Props {
