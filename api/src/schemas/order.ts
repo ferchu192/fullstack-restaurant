@@ -12,6 +12,9 @@ const orderSchema = new Schema({
         default: 1
       },
     }],
+  totalPrice: {
+    type: Number,
+  },
   status: {
     type: String,
     enum: ['taken', 'cooking', 'done'],

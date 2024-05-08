@@ -1,17 +1,37 @@
 import { RequestHandler } from 'express';
+import { ObjectId } from 'mongodb';
 
 import Order from '../schemas/order';
 
 /* 
  ---------------------------------- RESTAURANT ----------------------------------
 */
+
+interface OrderProduct {
+  id: string;
+  cant: number;
+  price: number;
+}
+
 export const createOrder: RequestHandler = async (req, res) => {
   try {
     const { body } = req;
     const { products } = body;
 
+    let total = 0;
+    // Parse string type to ObjectId
+    const orderProducts = products.map((unparseProduct: OrderProduct) => {
+      const { id, cant, price } = unparseProduct;
+      total += (cant * price);
+      return {
+        id: new ObjectId(id),
+        cant,
+      }
+    });
+
     const newOrder = new Order({
-      products,
+      products: orderProducts,
+      totalPrice: total,
     });
 
     const saved = await newOrder.save();

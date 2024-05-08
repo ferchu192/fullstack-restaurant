@@ -9,6 +9,11 @@ interface MenuResponse {
   menu: any,
   totalCount: number,
 }
+interface OrderProduct {
+  id: string;
+  cant: number;
+  price: number;
+}
 
 export const getRestaurants = async (skip: Number, limit: Number): Promise<RestaurantResponse> => {
   const path = `${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/restaurants`;
@@ -26,4 +31,10 @@ export const getMenu = async (idRestaurant: string, skip: Number, limit: Number)
     menu: result?.data?.menu,
     totalCount: result?.data?.totalCount,
   };
+}
+
+export const createOrder = async (products: OrderProduct[]) => {
+  const path = `${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/create-order`;
+  const result = await axios.post(path, { products });
+  return result;
 }

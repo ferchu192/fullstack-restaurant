@@ -71,7 +71,7 @@ const Counter = (props: Props) => {
       </OperatorBubble>
       <Count id="count">
         {
-          count || 'ORDER'
+          count || 'Add to Order'
         }
       </Count>
       <OperatorBubble id="operator-bubble-plus" onClick={() => onChange('PLUS')}>
