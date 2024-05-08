@@ -13,7 +13,7 @@ const Container = styled.div`
   height: 25rem;
   width: 25rem;
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 8px 24px;
+  box-shadow: rgb(249 249 249 / 11%) 0px 8px 24px;
   border-radius: 24px;
   display: flex;
   flex-direction: column;
@@ -21,7 +21,8 @@ const Container = styled.div`
   gap: 0.5rem;
   padding: 1rem;
   position: relative;
-  background-color: #fffffff2;
+  background-color: rgb(20 61 103);
+  color: #dddddd;
   transition: transform 0.3s ease;
   &:hover {
     transform: scale(1.015);
@@ -44,7 +45,7 @@ const Description = styled.div`
   -webkit-line-clamp: 4;
   padding-inline: 1rem;
   font-style: italic;
-  color: #7d7d7d;
+  color: #ddddddce;
   padding-top: 1rem;
 `;
 
