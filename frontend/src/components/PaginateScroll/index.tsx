@@ -17,7 +17,7 @@ const Container = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: ${(props: any) => `repeat(${props['grid-template-columns']}, minmax(200px, 1fr))`};
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-gap: 5rem;
   justify-items: center;
 `;
@@ -42,7 +42,6 @@ interface Props {
   elements: any[],
   // totalCount: number,
   type: TypeCard,
-  templateColumns: number,
   emptyMessage: string,
 }
 
@@ -54,7 +53,6 @@ const PaginateScroll = (props: Props) => {
     fetchMore,
     // totalCount,
     type,
-    templateColumns,
     emptyMessage,
   } = props;
 
@@ -138,7 +136,7 @@ const PaginateScroll = (props: Props) => {
           </ContainerEmpty>
         )
       }
-      <Grid id={`${ID_CONTAINER}-grid`} grid-template-columns={templateColumns} >
+      <Grid id={`${ID_CONTAINER}-grid`} >
         {
           renderType(type)
         }
