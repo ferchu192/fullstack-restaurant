@@ -9,8 +9,9 @@ import RestaurantCard, { RestaurantCardInterface } from '../Cards/Restaurant';
 
 const Container = styled.div<ContainerProps>`
   padding: 2rem;
-  background-color: #e4e3de;
-  height: 38rem;
+  /* background-color: #e4e3de; */
+  background-color: rgb(19 35 51);
+  height: 42rem;
   overflow-y: auto;
   border-radius: 2rem;
   width: ${(props) => props.small ? '75%' : '100%'};

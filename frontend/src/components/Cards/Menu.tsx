@@ -17,7 +17,7 @@ const Container = styled.div`
   height: 15rem;
   width: 35rem;
   /* cursor: pointer; */
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 8px 24px;
+  box-shadow: rgb(255 255 255 / 7%) 0px 8px 24px;
   border-radius: 24px;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,8 @@ const Container = styled.div`
   gap: 0.5rem;
   padding: 1rem;
   position: relative;
-  background-color: #fffffff2;
+  background-color: rgb(20 61 103);
+  color: #dddddd;
 `;
 
 const Picture = styled.img`
