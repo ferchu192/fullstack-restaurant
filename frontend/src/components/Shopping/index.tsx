@@ -84,7 +84,7 @@ const ButtonOrder = styled.button<ButtonOrder>`
     if (props.disabled) return '#e0e0e0'
     else if (props.taked) return '#00a884'
     return '#4b8fe5'
-    }} ;
+  }} ;
   border: 0px solid;
   color: white;
   font-weight: bold;
@@ -95,9 +95,6 @@ const ButtonOrder = styled.button<ButtonOrder>`
   padding: 0.2rem;
   transition: background-color 0.5s ease;
 
-  /* &:hover {
-    background-color: #00a884;
-  } */
 `;
 interface SpanProps {
   empty: boolean;
@@ -139,6 +136,10 @@ const Shopping = () => {
         console.error('error: ', error)
         setLoading(false);
       })
+  }
+
+  const onClickOrderAgain = () => {
+    setTaked(false);
   }
 
   useEffect(() => {
@@ -203,9 +204,17 @@ const Shopping = () => {
             </SpanTotal>
             <ButtonOrder id="button-order" disabled={!count || loading} onClick={onClickOrder} taked={taked}>
               {
-              taked ? 'Taked' : 'Place Order'
+                taked ? 'Taked' : 'Place Order'
               }
             </ButtonOrder>
+            {
+              taked && (
+                <ButtonOrder id="button-take-again" disabled={false} onClick={onClickOrderAgain} taked={false}>
+                  Take again
+                </ButtonOrder>
+              )
+
+            }
           </OrderList>
         )}
     </Container>

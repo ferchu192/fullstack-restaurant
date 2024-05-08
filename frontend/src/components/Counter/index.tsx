@@ -11,7 +11,6 @@ const CounterContainer = styled.div`
 `;
 
 const OperatorBubble = styled.button`
-  border-radius: 10rem;
   background: none;
   border: 0px solid;
   color: #4b8fe5;
@@ -19,10 +18,10 @@ const OperatorBubble = styled.button`
   align-items: center;
   cursor: pointer;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
 `;
 
-const Count = styled.div`
+const Count = styled.div<Count>`
   border-radius: 24px;
   background-color: #4b8fe5;
   border: 1px solid #e0e0e0;
@@ -33,8 +32,15 @@ const Count = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60%;
+  width: 75%;
+  cursor: ${(props) => props.pointer ? 'pointer' : 'unset'};
+  font-size: 1.15rem;
+  height: 100%;
 `;
+
+interface Count {
+  pointer: boolean;
+};
 
 interface Props {
   increment: () => void;
@@ -66,17 +72,28 @@ const Counter = (props: Props) => {
 
   return (
     <CounterContainer id="counter-container">
-      <OperatorBubble id="operator-bubble-minus" onClick={() => onChange('MINUS')}>
-        -
-      </OperatorBubble>
-      <Count id="count">
+      <div style={{ width: '20%' }}>
+        {
+          count > 0 && (
+            <OperatorBubble id="operator-bubble-minus" onClick={() => onChange('MINUS')}>
+              -
+            </OperatorBubble>
+          )
+        }
+      </div>
+      <Count id="count" onClick={() => !count && onChange('PLUS')} pointer={!count}>
         {
           count || 'Add to Order'
         }
       </Count>
-      <OperatorBubble id="operator-bubble-plus" onClick={() => onChange('PLUS')}>
-        +
-      </OperatorBubble>
+      <div style={{ width: '20%' }}>
+        {
+          count > 0 && (
+            <OperatorBubble id="operator-bubble-plus" onClick={() => onChange('PLUS')}>
+              +
+            </OperatorBubble>
+          )}
+      </div>
     </CounterContainer>
   )
 };
