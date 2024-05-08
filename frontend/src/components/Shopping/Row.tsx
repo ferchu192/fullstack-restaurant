@@ -41,7 +41,7 @@ const Row = (props: Props) => {
         {title}
       </SpanTitle>
       <SpanPrice>
-        {`$${price}`}
+        {`$${price*cant}`}
       </SpanPrice>
     </Container>
   )
