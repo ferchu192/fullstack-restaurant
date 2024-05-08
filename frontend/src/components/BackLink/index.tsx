@@ -18,7 +18,7 @@ const BackLink = () => {
     <IoChevronBackOutline
       id="back-arrow"
       style={{
-        color: '#e4e3de',
+        color: 'antiquewhite',
         fontSize: '2.5rem',
         marginTop: 'auto',
         cursor: 'pointer',

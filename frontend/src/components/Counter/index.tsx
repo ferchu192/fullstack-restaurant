@@ -25,7 +25,7 @@ const Count = styled.div<Count>`
   border-radius: 24px;
   background-color: #4b8fe5;
   border: 1px solid #e0e0e0;
-  color: white;
+  color: antiquewhite;
   font-weight: bold;
   align-items: center;
   padding: 0.2rem;
