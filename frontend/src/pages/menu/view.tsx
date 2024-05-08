@@ -70,8 +70,8 @@ const View = (props: Props) => {
         elements={parseMenu(products)}
         fetchMore={fetchMore}
         type={TypeCard.menu}
-        templateColumns={2}
         emptyMessage="There are no meals for this restaurant. Try another one"
+        small={true}
       />
     </Container>
   )

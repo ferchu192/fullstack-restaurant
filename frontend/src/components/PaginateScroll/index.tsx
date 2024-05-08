@@ -7,17 +7,18 @@ import MenuCard, { MenuCardInterface } from '../Cards/Menu';
 // Interca
 import RestaurantCard, { RestaurantCardInterface } from '../Cards/Restaurant';
 
-const Container = styled.div`
+const Container = styled.div<ContainerProps>`
   padding: 2rem;
   background-color: #e4e3de;
-  height: 40rem;
+  height: 38rem;
   overflow-y: auto;
   border-radius: 2rem;
+  width: ${(props) => props.small ? '75%' : '100%'};
 `;
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: ${(props: any) => `repeat(${props['grid-template-columns']}, minmax(200px, 1fr))`};
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-gap: 5rem;
   justify-items: center;
 `;
@@ -37,13 +38,17 @@ const EmptyMessage = styled.span`
   border: 1px solid #b9b9b9;
 `;
 
+interface ContainerProps {
+  small: boolean,
+};
+
 interface Props {
   fetchMore: (cursor: number) => Promise<any[]>,
   elements: any[],
   // totalCount: number,
   type: TypeCard,
-  templateColumns: number,
   emptyMessage: string,
+  small: boolean,
 }
 
 const ID_CONTAINER = 'paginate-scroll-container';
@@ -54,8 +59,8 @@ const PaginateScroll = (props: Props) => {
     fetchMore,
     // totalCount,
     type,
-    templateColumns,
     emptyMessage,
+    small,
   } = props;
 
   const [currentElements, setCurrentElements] = useState<any[]>([]);
@@ -130,7 +135,7 @@ const PaginateScroll = (props: Props) => {
   };
 
   return (
-    <Container id={ID_CONTAINER}>
+    <Container id={ID_CONTAINER} small={small}>
       {
         !elements.length && (
           <ContainerEmpty id="container-empty">
@@ -138,7 +143,7 @@ const PaginateScroll = (props: Props) => {
           </ContainerEmpty>
         )
       }
-      <Grid id={`${ID_CONTAINER}-grid`} grid-template-columns={templateColumns} >
+      <Grid id={`${ID_CONTAINER}-grid`} >
         {
           renderType(type)
         }

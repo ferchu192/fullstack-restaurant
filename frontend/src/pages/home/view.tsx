@@ -20,6 +20,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  align-items: center;
 `;
 
 const Header = styled.div`
@@ -59,8 +60,8 @@ const View = (props: Props) => {
         fetchMore={fetchMore}
         // totalCount={totalCount}
         type={TypeCard.restaurant}
-        templateColumns={3}
         emptyMessage="No restaurants available at the moment"
+        small={false}
       />
     </Container>
   )
