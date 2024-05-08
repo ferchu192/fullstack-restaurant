@@ -1,5 +1,5 @@
 # Page
-This app is available in: http://93.127.212.61:8000/
+This app is available in: [http://93.127.212.61:8000/](http://fergimenez.website/)
 
 # Usage
 The application starts on the home page, where all the restaurants loaded in the app are listed. Only the first one of them has a necessary amount of products to see the infinite scroll component (PaginateScroll) in action.
