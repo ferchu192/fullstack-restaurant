@@ -35,7 +35,7 @@ Content-Type: application/json
 
 {
   "name": "Oyster Bar",
-  "description": "Step into a world of refined spirits and cozy ambiance at The Whiskey Lounge. Explore an extensive selection of whiskies from around the globe and savor unique cocktails crafted by expert mixologists.",
+  "description": "Step into a world of refined spirits and cozy ambiance at Oyster Bar. Explore an extensive selection of whiskies from around the globe and savor unique cocktails crafted by expert mixologists.",
   "image": "vintage-pin-up-art-perched-atop-an-oyster-bar-sign.jpg"
 }
 ###
@@ -44,7 +44,7 @@ Content-Type: application/json
 
 {
   "name": "Fish & Chips",
-  "description": "A celestial culinary experience awaits you at Starry Sky. Delight in gourmet dishes under a sky full of stars and enjoy the magic of the night.",
+  "description": "A celestial culinary experience awaits you at Fish & Chips. Delight in gourmet dishes under a sky full of stars and enjoy the magic of the night.",
   "image": "fish-and-chips-sign.jpg"
 }
 ###
@@ -53,7 +53,7 @@ Content-Type: application/json
 
 {
   "name": "Chez Marie",
-  "description": "An elegant gastronomic experience awaits you at The French Bistro. Delight in refined French cuisine and let yourself be carried away by the Parisian charm.",
+  "description": "An elegant gastronomic experience awaits you at Chez Marie. Delight in refined French cuisine and let yourself be carried away by the Parisian charm.",
   "image": "chez-marie-restaurant.jpg"
 }
 
@@ -87,15 +87,6 @@ Content-Type: application/json
 }
 
 ###
-
-PUT {{api}}/restaurant
-Content-Type: application/json
-
-{
-  "id": "66379696818bbbed2ee61274",
-  "imagePath": "Las cadenas de comida mexicana son reconocidas por ofrecer una variedad de platillos inspirados en la vibrante cocina de México. Desde tacos y burritos hasta quesadillas y enchiladas, estas cadenas destacan por su autenticidad, sabores intensos y opciones personalizadas. Utilizando ingredientes frescos y auténticos, las cadenas de comida mexicana ofrecen una experiencia culinaria que celebra la diversidad y riqueza de la gastronomía mexicana."
-}
-
 PUT {{api}}/restaurant
 Content-Type: application/json
 
