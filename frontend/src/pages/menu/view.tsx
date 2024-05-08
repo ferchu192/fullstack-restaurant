@@ -71,6 +71,7 @@ const View = (props: Props) => {
         fetchMore={fetchMore}
         type={TypeCard.menu}
         emptyMessage="There are no meals for this restaurant. Try another one"
+        small={true}
       />
     </Container>
   )

@@ -20,6 +20,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  align-items: center;
 `;
 
 const Header = styled.div`
@@ -60,6 +61,7 @@ const View = (props: Props) => {
         // totalCount={totalCount}
         type={TypeCard.restaurant}
         emptyMessage="No restaurants available at the moment"
+        small={false}
       />
     </Container>
   )
