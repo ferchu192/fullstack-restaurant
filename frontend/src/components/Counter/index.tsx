@@ -24,7 +24,7 @@ const OperatorBubble = styled.button`
 const Count = styled.div<Count>`
   border-radius: 24px;
   background-color: #4b8fe5;
-  border: 1px solid #e0e0e0;
+  /* border: 1px solid #e0e0e0; */
   color: antiquewhite;
   font-weight: bold;
   align-items: center;

@@ -75,6 +75,7 @@ const Ingredients = styled.div`
 
 const Price = styled.span`
   text-align: end;
+  font-weight: bold;
 `;
 
 const Footer = styled.div`
