@@ -29,7 +29,7 @@ const Header = styled.div`
 `;
 
 const H1 = styled.h1`
-  color: white;
+  color: antiquewhite;
   font-family: Roboto Slab, serif;
   font-size: 3rem;
 `;

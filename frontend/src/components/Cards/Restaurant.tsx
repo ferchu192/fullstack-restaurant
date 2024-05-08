@@ -22,7 +22,7 @@ const Container = styled.div`
   padding: 1rem;
   position: relative;
   background-color: rgb(20 61 103);
-  color: #dddddd;
+  color: antiquewhite;
   transition: transform 0.3s ease;
   &:hover {
     transform: scale(1.015);
@@ -45,7 +45,7 @@ const Description = styled.div`
   -webkit-line-clamp: 4;
   padding-inline: 1rem;
   font-style: italic;
-  color: #ddddddce;
+  color: #faebd7ce;
   padding-top: 1rem;
 `;
 
