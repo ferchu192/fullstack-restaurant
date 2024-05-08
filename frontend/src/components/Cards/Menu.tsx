@@ -93,6 +93,7 @@ const CounterContainer = styled.div`
 const PriceContainer = styled.div`
   width: 60%;
   text-align: end;
+  font-size: 1.5rem;
 `;
 
 const TagContainer = styled.div`
