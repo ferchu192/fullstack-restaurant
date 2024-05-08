@@ -1,8 +1,19 @@
 # Modo de uso
 La aplicación comienza en home, donde se listan todos los restaurantes que tiene cargada la app. Solo el primero d la e ellos cuenta con una cantidad necesaria de productos como para ver en funcionamiento el componente de scroll infinito (PaginateScroll).
 
+![image](https://github.com/ferchu192/fullstack-restaurant/assets/20408878/f6112700-f1d6-4cca-b949-45bdb76f91fa)
+
 Una vez lo seleccionamos, veremos una página dedicada a mostrar el menú de ese restaurant. Aquí se listaran todos los productos haciendo uso del (PaginateScroll). Cada uno de ellos se podrá elegir para tomar una orden. Cada vez que cambiemos la orden se mostrará en el icono de Shop.
+
+![image](https://github.com/ferchu192/fullstack-restaurant/assets/20408878/893154cd-3c52-4469-835f-0a3be0647f8c)
+
 Una vez tengamos lista nuestra orden, podremos consultarla y tomarla yendo al botón de Shop, veremos desplegarse un menú con el detalle de nuestro pedido y un botón para tomarla.
+
+![image](https://github.com/ferchu192/fullstack-restaurant/assets/20408878/4da0e217-b52c-4fb3-a77d-67fdd776ef65)
+
+Finalmente hayamos decido pedir la orden, se creara en base de datos una orden nueva con el detalle del pedido.
+
+![image](https://github.com/ferchu192/fullstack-restaurant/assets/20408878/1459fca0-0878-45fa-9d45-2786beac32c6)
 
 # Documentación
 
