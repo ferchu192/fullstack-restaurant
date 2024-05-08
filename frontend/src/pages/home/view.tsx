@@ -60,6 +60,7 @@ const View = (props: Props) => {
         // totalCount={totalCount}
         type={TypeCard.restaurant}
         templateColumns={3}
+        emptyMessage="No restaurants available at the moment"
       />
     </Container>
   )

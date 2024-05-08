@@ -22,12 +22,25 @@ const Grid = styled.div`
   justify-items: center;
 `;
 
+const ContainerEmpty = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const EmptyMessage = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 interface Props {
   fetchMore: (cursor: number) => Promise<any[]>,
   elements: any[],
   // totalCount: number,
   type: TypeCard,
   templateColumns: number,
+  emptyMessage: string,
 }
 
 const ID_CONTAINER = 'paginate-scroll-container';
@@ -39,6 +52,7 @@ const PaginateScroll = (props: Props) => {
     // totalCount,
     type,
     templateColumns,
+    emptyMessage,
   } = props;
 
   const [currentElements, setCurrentElements] = useState<any[]>([]);
@@ -108,12 +122,19 @@ const PaginateScroll = (props: Props) => {
           />
         ))
       default:
-        return <></>
+        return <EmptyMessage>{emptyMessage}</EmptyMessage>
     }
   };
 
   return (
     <Container id={ID_CONTAINER}>
+      {
+        !elements.length && (
+          <ContainerEmpty id="container-empty">
+            <EmptyMessage id="empty-message">{emptyMessage}</EmptyMessage>
+          </ContainerEmpty>
+        )
+      }
       <Grid id={`${ID_CONTAINER}-grid`} grid-template-columns={templateColumns} >
         {
           renderType(type)
