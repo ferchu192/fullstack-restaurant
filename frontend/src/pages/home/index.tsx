@@ -6,6 +6,7 @@ import { AppDispatch } from '../../store';
 
 // Redux
 import { RootState } from '../../store';
+import { addNewRestaurants } from '../../store/restaurantReducer';
 
 // Enpoint
 import { getRestaurants } from '../../services/endpoints';
@@ -19,7 +20,6 @@ import { parseRestaurants } from './helpers';
 
 // Components
 import View from './view'
-import { addNewRestaurants } from '../../store/restaurantReducer';
 
 const Home = () => {
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
