@@ -1,5 +1,3 @@
-import React from 'react';
-
 // Hooks
 import { useNavigate } from 'react-router-dom';
 

@@ -52,9 +52,14 @@ const shopReducer = createSlice({
         }
       }
     },
+    resetOrder(state) {
+      state.products = {};
+      state.totalCount = 0;
+      state.totalPrice = 0;
+    }
   },
 });
 
-export const { addProduct, decrementProduct } = shopReducer.actions;
+export const { addProduct, decrementProduct, resetOrder } = shopReducer.actions;
 
 export default shopReducer.reducer;

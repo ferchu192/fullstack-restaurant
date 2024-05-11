@@ -1,4 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+// Hooks
+import { useDispatch } from 'react-redux';
+
+// Redux
+import { AppDispatch } from '../../store';
 
 // Styled-Components
 import styled from 'styled-components';
@@ -9,14 +15,11 @@ import BackLink from '../../components/BackLink';
 import Shopping from '../../components/Shopping';
 
 // Interfaces
-import { MenuCardInterface } from '../../components/Cards/Menu';
 import { Menu } from './Menu';
-
-// Endpoints
-import { getMenu } from '../../services/endpoints'
 
 // Helpers
 import { parseMenu } from './helpers';
+import { resetOrder } from '../../store/shopReducer';
 
 const Container = styled.div`
   display: flex;
@@ -46,17 +49,19 @@ const ID_BASE = 'menu-view';
 
 interface Props {
   products: Menu[],
-  idRestaurant: string,
+  // idRestaurant: string,
+  fetchMore: (cursor: number) => Promise<any[]>,
 }
 
 const View = (props: Props) => {
-  const { products, idRestaurant } = props;
+  const { products, fetchMore } = props;
+  
+  const dispatch = useDispatch<AppDispatch>();
 
-  const fetchMore: (skip: number) => Promise<MenuCardInterface[]> = async (skip: number) => {
-    const result = await getMenu(idRestaurant, skip, 4);
-    return parseMenu(result.menu);
-  }
-
+  useEffect(() => {
+    dispatch(resetOrder());
+  }, [dispatch]);
+  
   return (
     <Container id={`${ID_BASE}-container`}>
       <Header id={`${ID_BASE}-header`}>

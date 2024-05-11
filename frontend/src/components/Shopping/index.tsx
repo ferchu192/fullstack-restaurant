@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // Hooks
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
+
+// Redux
+import { AppDispatch } from '../../store';
 
 // Enpoint
 import { createOrder } from '../../services/endpoints';
@@ -15,7 +18,7 @@ import styled from 'styled-components';
 import Row from './Row';
 
 // Interface
-import { ShopItem } from '../../store/shopReducer';
+import { resetOrder, ShopItem } from '../../store/shopReducer';
 
 const Container = styled.div`
   position: relative;
@@ -77,8 +80,7 @@ const EmptyMessage = styled.span`
   text-align: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  font-size: 2rem;
-  color: antiquewhite;
+  color: #1b1b1b;
 `;
 
 const ButtonOrder = styled.button<ButtonOrder>`
@@ -117,6 +119,8 @@ const Shopping = () => {
   const allProducts = useSelector((state: RootState) => state.shop.products);
   const totalPrice = useSelector((state: RootState) => state.shop.totalPrice);
 
+  const dispatch = useDispatch<AppDispatch>();
+
   const onClick = () => {
     setShowList(!showList);
   }
@@ -141,6 +145,7 @@ const Shopping = () => {
   }
 
   const onClickOrderAgain = () => {
+    dispatch(resetOrder());
     setTaked(false);
   }
 

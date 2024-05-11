@@ -1,5 +1,3 @@
-import React from 'react';
-
 // Styled-Components
 import styled from 'styled-components';
 
@@ -7,11 +5,7 @@ import styled from 'styled-components';
 import PaginateScroll, { TypeCard } from '../../components/PaginateScroll';
 
 // Interfaces
-import { RestaurantCardInterface } from '../../components/Cards/Restaurant'
 import { Restaurant } from './Restaurant'
-
-// Endpoints
-import { getRestaurants } from '../../services/endpoints'
 
 // Helpers
 import { parseRestaurants } from './helpers';
@@ -37,16 +31,11 @@ const H1 = styled.h1`
 const ID_BASE = 'home-view';
 interface Props {
   restaurants: Restaurant[],
-  totalCount: number,
+  fetchMore: (cursor: number) => Promise<any[]>,
 }
 
 const View = (props: Props) => {
-  const { restaurants, totalCount } = props;
-
-  const fetchMore: (skip: number) => Promise<RestaurantCardInterface[]> = async (skip: number) => {
-    const result = await getRestaurants(skip, 5);
-    return parseRestaurants(result.restaurants);
-  }
+  const { restaurants, fetchMore } = props;
 
   return (
     <Container id={`${ID_BASE}-container`}>
@@ -58,7 +47,6 @@ const View = (props: Props) => {
       <PaginateScroll
         elements={parseRestaurants(restaurants)}
         fetchMore={fetchMore}
-        // totalCount={totalCount}
         type={TypeCard.restaurant}
         emptyMessage="No restaurants available at the moment"
         small={false}

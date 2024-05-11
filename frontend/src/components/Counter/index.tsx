@@ -1,4 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
+// Hooks
+import { useSelector } from 'react-redux';
+
+// Redux
+import { RootState } from '../../store';
 
 // Styled-Components
 import styled from 'styled-components';
@@ -51,6 +57,9 @@ interface Props {
 const Counter = (props: Props) => {
   const { increment, decrement, initValue } = props;
 
+  // Counter of all products. If this is empty means reset all count
+  const allCounter = useSelector((state: RootState) => state.shop.totalCount);
+
   const [count, setCount] = useState(initValue || 0);
 
   const onChange = (operator: string) => {
@@ -69,6 +78,10 @@ const Counter = (props: Props) => {
       setCount(newCount);
     }
   }
+
+  useEffect(() => {
+    if (allCounter == 0) setCount(0);
+  }, [allCounter]);
 
   return (
     <CounterContainer id="counter-container">
