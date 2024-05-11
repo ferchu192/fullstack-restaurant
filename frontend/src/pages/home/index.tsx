@@ -23,7 +23,6 @@ import View from './view'
 
 const Home = () => {
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
-  const [mount, setMount] = useState(false);
 
   // Redux
   const dispatch = useDispatch<AppDispatch>();
@@ -37,7 +36,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    if ((mount) && (!cacheRestaurants.length) && (dispatch)) {
+    if ((!cacheRestaurants.length) && (dispatch)) {
       const loadRestaurants = async () => {
         const result = await getRestaurants(0, 6)
         setRestaurants(result.restaurants);
@@ -48,10 +47,8 @@ const Home = () => {
     } else {
       setRestaurants(cacheRestaurants);
     } 
-    return () => {
-      setMount(true);
-    }
-  }, [cacheRestaurants, dispatch, mount]);
+    return () => { }
+  }, [cacheRestaurants, dispatch]);
 
   return <View restaurants={restaurants} fetchMore={fetchMore} />
 };

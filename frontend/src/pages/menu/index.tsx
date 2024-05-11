@@ -24,7 +24,6 @@ import View from './view';
 
 const Menu = () => {
   const [products, setProducts] = useState<MenuInterface[]>([]);
-  const [mount, setMount] = useState(false);
 
   const { idRestaurant } = useParams();
 
@@ -39,7 +38,7 @@ const Menu = () => {
   }
 
   useEffect(() => {
-    if ((mount) && (!cacheMenus.length) && (dispatch)) {
+    if ((!cacheMenus.length) && (dispatch)) {
       const loadMenu = async () => {
         const result = await getMenu(idRestaurant || '', 0, 6)
         dispatch(addNewMenu({ newMenus: result.menu }));
@@ -50,10 +49,8 @@ const Menu = () => {
     } else {
       setProducts(cacheMenus);
     }
-    return () => {
-      setMount(true);
-    }
-  }, [idRestaurant, dispatch, mount, cacheMenus]);
+    return () => { }
+  }, [idRestaurant, dispatch, cacheMenus]);
 
   return <View products={products} fetchMore={fetchMore} />
 };
